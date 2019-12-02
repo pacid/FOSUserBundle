@@ -17,7 +17,7 @@
 
     <services>
         <service id="fos_user.mailer.default" class="FOS\UserBundle\Mailer\Mailer" public="false">
-            <argument type="service" id="fos_user.mailer" />
+            <argument type="service" id="mailer" />
             <argument type="service" id="router" />
             <argument type="service" id="templating" />
             <argument type="collection">

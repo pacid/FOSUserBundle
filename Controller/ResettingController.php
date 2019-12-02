@@ -17,7 +17,7 @@ use FOS\UserBundle\Event\GetResponseNullableUserEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Mailer\MailerInterface;
+use FOS\UserBundle\Mailer\FosMailerInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use FOS\UserBundle\Util\TokenGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -50,10 +50,10 @@ class ResettingController extends Controller
      * @param FactoryInterface         $formFactory
      * @param UserManagerInterface     $userManager
      * @param TokenGeneratorInterface  $tokenGenerator
-     * @param MailerInterface          $mailer
+     * @param FosMailerInterface          $mailer
      * @param int                      $retryTtl
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, FactoryInterface $formFactory, UserManagerInterface $userManager, TokenGeneratorInterface $tokenGenerator, MailerInterface $mailer, $retryTtl)
+    public function __construct(EventDispatcherInterface $eventDispatcher, FactoryInterface $formFactory, UserManagerInterface $userManager, TokenGeneratorInterface $tokenGenerator, FosMailerInterface $mailer, $retryTtl)
     {
         $this->eventDispatcher = $eventDispatcher;
         $this->formFactory = $formFactory;

@@ -174,7 +174,7 @@ library to send mail. If you would like to use a different library to send
 emails, want to send HTML emails or simply change the content of the email you
 may do so by defining your own service.
 
-First you must create a new class which implements ``FOS\UserBundle\Mailer\MailerInterface``
+First you must create a new class which implements ``FOS\UserBundle\Mailer\FosMailerInterface``
 which is listed below.
 
 .. code-block:: php
@@ -188,7 +188,7 @@ which is listed below.
     /**
      * @author Thibault Duplessis <thibault.duplessis@gmail.com>
      */
-    interface MailerInterface
+    interface FosMailerInterface
     {
         /**
          * Send an email to a user to confirm the account creation
@@ -218,7 +218,7 @@ An example is listed below.
         service:
             mailer: app.custom_fos_user_mailer
 
-To see an example of a working implementation of the ``MailerInterface``
+To see an example of a working implementation of the ``FosMailerInterface``
 see the `ZetaMailer`_ class of the `ZetaWebmailBundle`_. This implementation
 uses the Zeta Components Mail to send emails instead of Swiftmailer.
 

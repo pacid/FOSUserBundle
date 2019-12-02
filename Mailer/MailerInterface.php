@@ -16,7 +16,7 @@ use FOS\UserBundle\Model\UserInterface;
 /**
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */
-interface MailerInterface
+interface FosMailerInterface
 {
     /**
      * Send an email to a user to confirm the account creation.

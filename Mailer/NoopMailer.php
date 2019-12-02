@@ -20,7 +20,7 @@ use FOS\UserBundle\Model\UserInterface;
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */
-class NoopMailer implements MailerInterface
+class NoopMailer implements FosMailerInterface
 {
     /**
      * @param UserInterface $user

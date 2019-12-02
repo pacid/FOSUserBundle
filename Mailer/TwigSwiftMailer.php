@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 /**
  * @author Christophe Coevoet <stof@notk.org>
  */
-class TwigSwiftMailer implements MailerInterface
+class TwigSwiftMailer implements FosMailerInterface
 {
     /**
      * @var \Swift_Mailer

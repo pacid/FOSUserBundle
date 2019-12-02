@@ -13,7 +13,7 @@ namespace FOS\UserBundle\EventListener;
 
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Mailer\MailerInterface;
+use FOS\UserBundle\Mailer\FosMailerInterface;
 use FOS\UserBundle\Util\TokenGeneratorInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,12 +30,12 @@ class EmailConfirmationListener implements EventSubscriberInterface
     /**
      * EmailConfirmationListener constructor.
      *
-     * @param MailerInterface         $mailer
+     * @param FosMailerInterface         $mailer
      * @param TokenGeneratorInterface $tokenGenerator
      * @param UrlGeneratorInterface   $router
      * @param SessionInterface        $session
      */
-    public function __construct(MailerInterface $mailer, TokenGeneratorInterface $tokenGenerator, UrlGeneratorInterface $router, SessionInterface $session)
+    public function __construct(FosMailerInterface $mailer, TokenGeneratorInterface $tokenGenerator, UrlGeneratorInterface $router, SessionInterface $session)
     {
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;

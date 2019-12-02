@@ -99,7 +99,7 @@ class Mailer implements FosMailerInterface
         $body = implode("\n", $renderedLines);
 
         $email = (new Email())
-            ->from($fromEmail)
+            ->from(is_array($fromEmail) ? array_key_first($fromEmail) : $fromEmail)
             ->to($toEmail)
             ->subject($subject)
             ->text($body)

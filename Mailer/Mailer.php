@@ -13,6 +13,8 @@ namespace FOS\UserBundle\Mailer;
 
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -21,7 +23,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class Mailer implements FosMailerInterface
 {
     /**
-     * @var \Swift_Mailer
+     * @var MailerInterface
      */
     protected $mailer;
 
@@ -43,12 +45,12 @@ class Mailer implements FosMailerInterface
     /**
      * Mailer constructor.
      *
-     * @param \Swift_Mailer         $mailer
+     * @param MailerInterface         $mailer
      * @param UrlGeneratorInterface $router
      * @param EngineInterface       $templating
      * @param array                 $parameters
      */
-    public function __construct($mailer, UrlGeneratorInterface  $router, EngineInterface $templating, array $parameters)
+    public function __construct(MailerInterface $mailer, UrlGeneratorInterface  $router, EngineInterface $templating, array $parameters)
     {
         $this->mailer = $mailer;
         $this->router = $router;
@@ -96,12 +98,13 @@ class Mailer implements FosMailerInterface
         $subject = array_shift($renderedLines);
         $body = implode("\n", $renderedLines);
 
-        $message = (new \Swift_Message())
-            ->setSubject($subject)
-            ->setFrom($fromEmail)
-            ->setTo($toEmail)
-            ->setBody($body);
+        $email = (new Email())
+            ->from($fromEmail)
+            ->to($toEmail)
+            ->subject($subject)
+            ->text($body)
+            ->html($body);
 
-        $this->mailer->send($message);
+        $this->mailer->send($email);
     }
 }

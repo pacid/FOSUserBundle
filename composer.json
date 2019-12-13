@@ -1,5 +1,6 @@
 {
-    "name": "friendsofsymfony/user-bundle",
+    "name": "codehort/user-bundle",
+    "replaces": "friendsofsymfony/user-bundle",
     "type": "symfony-bundle",
     "description": "Symfony FOSUserBundle",
     "keywords": [

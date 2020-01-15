@@ -37,4 +37,12 @@ class NoopMailer implements FosMailerInterface
     {
         // nothing happens.
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendUpdateEmailConfirmation(UserInterface $user, $confirmationUrl, $toEmail)
+    {
+        // nothing happens.
+    }
 }
